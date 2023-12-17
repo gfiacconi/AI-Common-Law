@@ -1,5 +1,2 @@
-openai
 streamlit
-uuid
-time
-pandas
+openai
