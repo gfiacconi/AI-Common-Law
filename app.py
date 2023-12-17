@@ -14,6 +14,7 @@ assistant_id = st.secrets["assistant_id"]
 
 api_key = st.secrets["api_key"]
 
+
 def set_background(svg_file):
     def get_base64(file_path):
         with open(file_path, 'rb') as f:
@@ -31,8 +32,6 @@ def set_background(svg_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-st.title("EVAH")
-set_background('./assett/sfondo.svg')
 
 client = OpenAI(api_key=api_key)
 
@@ -53,7 +52,8 @@ if "retry_error" not in st.session_state:
     st.session_state.retry_error = 0
 
 # Set up the page
-st.set_page_config(page_title="AI Law")
+st.set_page_config(page_title="AI Law", page_icon=":robot_face:", layout="wide")
+set_background('./assett/sfondo.svg')
 st.sidebar.title("AI Law")
 st.sidebar.divider()
 st.sidebar.markdown("Axiom Farm", unsafe_allow_html=True)
