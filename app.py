@@ -15,6 +15,7 @@ assistant_id = st.secrets["assistant_id"]
 api_key = st.secrets["api_key"]
 
 
+
 def set_background(svg_file):
     def get_base64(file_path):
         with open(file_path, 'rb') as f:
@@ -55,12 +56,18 @@ if "retry_error" not in st.session_state:
 st.set_page_config(page_title="AI Law", page_icon=":robot_face:", layout="wide")
 set_background('./assett/sfondo.svg')
 st.sidebar.title("AI Law")
+st.sidebar.markdown('''
+    ## About
+    Strumento basato sull'AI 🤖che ottimizza l'attività di ricerca in dottrina e giurisprudenza per i professionisti 
+    del diritto ⚖️
+
+    ''')
 st.sidebar.divider()
-st.sidebar.markdown("Axiom Farm", unsafe_allow_html=True)
-st.sidebar.markdown("Assistant")
+st.sidebar.image('./assett/logo.svg', width=200)
 st.sidebar.divider()
 
 # File uploader for CSV, XLS, XLSX
+st.image('./assett/logo.svg', width=200)
 uploaded_file = st.file_uploader("Upload your file", type=["pdf", "csv", "xls", "xlsx"])
 
 if uploaded_file is not None:
