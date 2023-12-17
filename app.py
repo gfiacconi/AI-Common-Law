@@ -6,11 +6,33 @@ import time
 import pandas as pd
 import io
 from openai import OpenAI
+import base64
+
 
 # Initialize OpenAI client
 assistant_id = st.secrets["assistant_id"]  
 
 api_key = st.secrets["api_key"]
+
+def set_background(svg_file):
+    def get_base64(file_path):
+        with open(file_path, 'rb') as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+
+    bin_str = get_base64(svg_file)
+    page_bg_img = '''
+    <style>
+    .stApp {
+        background-image: url("data:image/svg+xml;base64,%s");
+        background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+st.title("EVAH")
+set_background('./assett/sfondo.svg')
 
 client = OpenAI(api_key=api_key)
 
