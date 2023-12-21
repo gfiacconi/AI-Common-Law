@@ -7,13 +7,12 @@ import pandas as pd
 import io
 from openai import OpenAI
 import base64
+from email.message import EmailMessage
 
-
-# Initialize OpenAI client
-assistant_id = st.secrets["assistant_id"]  
-
-api_key = st.secrets["api_key"]
-
+# assistant_id = st.secrets["assistant_id"]  
+assistant_id="asst_eTvG65l2GJ8AJhvsO2Xdviqz"
+# api_key = st.secrets["api_key"]
+api_key="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"
 
 
 def set_background(svg_file):
@@ -58,13 +57,16 @@ set_background('./assett/sfondo.svg')
 st.sidebar.title("AI Law")
 st.sidebar.markdown('''
     ## About
-    Strumento basato sull'AI 🤖che ottimizza l'attività di ricerca in dottrina e giurisprudenza per i professionisti 
-    del diritto ⚖️
-
+AI-based tool 🤖 that optimizes legal professionals' research activities in doctrine and case law ⚖️
     ''')
 st.sidebar.divider()
 st.sidebar.image('./assett/logo.svg', width=200)
 st.sidebar.divider()
+# Indirizzo email predefinito
+email_address = 'f.gabri@icloud.com'
+
+# Creazione del pulsante Markdown che apre il client di posta elettronica predefinito
+st.sidebar.link_button("Send Feedback", "mailto:{email_address}?subject=Feedback&body=Insert here your feedback")
 
 # File uploader for CSV, XLS, XLSX
 st.image('./assett/logo.svg', width=200)
