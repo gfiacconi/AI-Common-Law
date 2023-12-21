@@ -9,10 +9,9 @@ from openai import OpenAI
 import base64
 from email.message import EmailMessage
 
-# assistant_id = st.secrets["assistant_id"]  
-assistant_id="asst_eTvG65l2GJ8AJhvsO2Xdviqz"
-# api_key = st.secrets["api_key"]
-api_key="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"
+
+assistant_id = st.secrets["assistant_id"]  
+api_key = st.secrets["api_key"]
 
 
 def set_background(svg_file):
